@@ -1,0 +1,50 @@
+version: "2.3"
+
+#Define services
+services:
+
+  #PostgreSQL Database for the application
+  incidencias-postgres:
+    image: "postgres:9.6-alpine"
+    container_name: incidencias-postgres
+    #Volume mounted for database for the storage
+    volumes:
+      - insidencias-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432 # Forward the exposed port 5432 on the container to port 5432 on the host machine
+
+    #Environment variable for DB name, user and password
+    environment:
+      - POSTGRES_DB=insidencias_db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=postgres
+
+  #Back-end Spring Boot Application
+  incidencias-backendo:
+    #The docker file in incidencias-app build the jar and provides the docker image with the following name.
+    build: ../backend
+    container_name: incidencias-backendo
+
+    #Environment variables for Spring Boot Application.
+    environment:
+      - DB_SERVER=incidencias-postgres
+      - POSTGRES_DB=insidencias_db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 8080:8080 # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    links:
+      - incidencias-postgres
+
+  #Fron-end Angular Application
+  incidencias-frontendo:
+    build: ../frontend
+    container_name: incidencias-frontendo
+    ports:
+      - 4200:80
+    links:
+      - incidencias-backendo
+
+#Volumes for DB data
+volumes:
+  insidencias-data:
