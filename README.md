@@ -50,10 +50,10 @@ y se ejecuta
 ```
 
 Se tiene que tener 4 carpetas dentro de una que se llama incidencias y dentro de incidencias deben estar los proyectos back, front, docker y por ultimo una carpetas que se llamara jar
-
+```
 ──incidencias
    ├── backend (https://github.com/MartinezYonathan/incidenciaServicioBackend)
    ├── frontend (https://github.com/MartinezYonathan/incidenciaServicioFrontEnd)
    ├── jar
    └── docker (https://github.com/MartinezYonathan/incidenciaServicioDocker)
-
+```
