@@ -57,3 +57,43 @@ Se tiene que tener 4 carpetas dentro de una que se llama incidencias y dentro de
    ├── jar (mkdir jar)
    └── docker (https://github.com/MartinezYonathan/incidenciaServicioDocker)
 ```
+Al igual que otras partes de la aplicación, la base de datos de Postgres está en contenedores y
+la definición de su contenedor Docker se puede encontrar en
+* archivo docker-compose.yml *.
+
+```yml
+incidencias-postgres:
+    image: "postgres:9.6-alpine"
+    container_name: incidencias-postgres
+    volumes:
+      - scrum-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB:incidencias-bd
+      - POSTGRES_USER:root
+      - POSTGRES_PASSWORD:password1.-
+```
+
+#### incidencias-backendo (API REST)
+crum-app
+Esta es una aplicación basada en Spring Boot (Java) que se conecta con un
+base de datos que exponen los servicios REST que pueden ser consumidos por
+Interfaz. Admite múltiples métodos HTTP REST como GET, POST, PUT y
+DELETE para los recursos.
+
+La lista completa de los servicios REST disponibles se puede encontrar en Swagger UI,
+que se puede llamar usando el enlace: ** http://localhost:8080/swagger-ui.html#/ **
+
+Esta aplicación también se coloca en el contenedor Docker y se puede encontrar su definición
+en un archivo * scrum-app / Dockerfile *.
+
+
+
+#### incidencias-ui (Frontend)
+
+Este es un punto final para un usuario donde puede registrarse y dar de alta sus
+incidencias y darles segumiento. Consume los endpoint de la API REST proporcionados por
+* incidencias-backendo *.
+
+Se puede ingresar usando el enlace: ** http://localhost:4200/ **
