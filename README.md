@@ -38,7 +38,7 @@ Se le da permisos con
 ```
 y se ejecuta 
 ```
-./builder.sh <comando>
+docker/$ ./builder.sh <comando>
 ```
     - front)
     - back)
@@ -66,7 +66,7 @@ incidencias-postgres:
     image: "postgres:9.6-alpine"
     container_name: incidencias-postgres
     volumes:
-      - scrum-data:/var/lib/postgresql/data
+      - incidencia-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     environment:
