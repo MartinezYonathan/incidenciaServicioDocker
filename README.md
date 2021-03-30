@@ -76,7 +76,7 @@ incidencias-postgres:
 ```
 
 #### incidencias-backendo (API REST)
-crum-app
+incidencias-backend-app
 Esta es una aplicación basada en Spring Boot (Java) que se conecta con un
 base de datos que exponen los servicios REST que pueden ser consumidos por
 Interfaz. Admite múltiples métodos HTTP REST como GET, POST, PUT y
@@ -86,7 +86,7 @@ La lista completa de los servicios REST disponibles se puede encontrar en Swagge
 que se puede llamar usando el enlace: ** http://localhost:8080/swagger-ui.html#/ **
 
 Esta aplicación también se coloca en el contenedor Docker y se puede encontrar su definición
-en un archivo * scrum-app / Dockerfile *.
+en un archivo * backendo / Dockerfile *.
 
 
 
