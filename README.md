@@ -27,7 +27,7 @@ sudo apt install maven
 mvn -version
 ```
 
-### ¿Cómo ejecutarlo?
+### ¿Cómo ejecutarl docker-compose?
 
 Se puede ejecutar una aplicación completa con un solo comando en una terminal:
 ```
