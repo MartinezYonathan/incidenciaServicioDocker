@@ -17,6 +17,16 @@ Instrucciones de cómo instalar ** Docker ** en [Ubuntu] (https://docs.docker.co
 
 ** Dosker Compose ** ya está incluido en los paquetes de instalación para * Windows * y * Mac *, por lo que solo los usuarios de Ubuntu deben seguir [estas instrucciones] (https://docs.docker.com/compose/install/).
 
+** maven **  Instalar Maven en Ubuntu utilizando apt es un proceso simple y directo. No tendremos más que abrir una terminal (Ctrl+Alt+T) y comenzar actualizando el índice del paquetes:
+```
+sudo apt update
+```
+A continuación, instalaremos Maven escribiendo el siguiente comando en la misma terminal:
+```
+sudo apt install maven
+mvn -version
+```
+
 ### ¿Cómo ejecutarlo?
 
 Se puede ejecutar una aplicación completa con un solo comando en una terminal:
